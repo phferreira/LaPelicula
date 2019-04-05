@@ -40,11 +40,8 @@ class LoginLoadingScreen extends Component {
         function (txp, res) {
           if (res.rows.length == 0) {
             tx.executeSql('CREATE TABLE IF NOT EXISTS filme(codigo INTEGER PRIMARY KEY AUTOINCREMENT, descricao VARCHAR(200), imagem blob)', []);
-            tx.executeSql('INSERT INTO filme(descricao) VALUES(\'filme 01\')', []);
-            tx.executeSql('INSERT INTO filme(descricao) VALUES(\'filme 02\')', []);
-            tx.executeSql('INSERT INTO filme(descricao) VALUES(\'filme 03\')', []);
           }
-        });
+        })
     });
   }
 
@@ -83,7 +80,7 @@ const styles = StyleSheet.create({
 
 // criar um navegador Tab
 const AppTab = createBottomTabNavigator({
-  Home: { screen: ListaFilmesScreen },
+  Lista: { screen: ListaFilmesScreen },
   Filme: { screen: FilmeScreen },
   Sobre: { screen: SobreScreen }
 }, {
@@ -107,7 +104,6 @@ const AppStack = createStackNavigator(
   }
 );
 
-// criando navegador Switch
 const AppSwitch = createSwitchNavigator({
   LoginLoading: LoginLoadingScreen,
   App: AppTab,

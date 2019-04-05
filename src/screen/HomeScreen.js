@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, BackHandler, Image } 
+import { View, Text, StyleSheet, Image } 
 from 'react-native';
 import {LPButton} from '../component/LPButton';
 
@@ -27,28 +27,19 @@ export default class HomeScreen extends Component {
         super(props);
         this.state = {};
 
-        this.proxima = this.proxima.bind(this);
-        this.sair = this.sair.bind(this);
+        this.telaLogin = this.telaLogin.bind(this);
     }
 
-    proxima() {
-        // passando para próxima tela        
-        this.props.navigation.navigate('Login');
-    }
-
-    sair() {
-        // sair do app
-        BackHandler.exitApp();
+    telaLogin() {
+        this.props.navigation.navigate('Login')
     }
 
   render() {
     return (
       <View style={styles.container}>
         <Text>Tela Principal</Text> 
-        <LPButton titulo="Próxima tela"
-        onPress={() => { this.proxima() }} />
-        <LPButton titulo="Sair"
-        onPress={() => { this.sair() }} />
+        <LPButton titulo="Login"
+        onPress={() => { this.telaLogin() }} />
       </View>
     );
   }
