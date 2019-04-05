@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
   View, ActivityIndicator, StatusBar,
-  AsyncStorage, StyleSheet
+  AsyncStorage, StyleSheet, Alert
 }
   from 'react-native';
 
@@ -18,6 +18,7 @@ var db = openDatabase({
   name: 'lapelicula.db'
 });
 
+import HomeScreen from './src/screen/HomeScreen';
 import LoginScreen from './src/screen/LoginScreen';
 import ListaFilmesScreen from './src/screen/ListaFilmesScreen';
 import FilmeScreen from './src/screen/FilmeScreen';
@@ -102,6 +103,7 @@ const AppTab = createBottomTabNavigator({
 // criando navegador Stack
 const AppStack = createStackNavigator(
   {
+    Home: ListaFilmesScreen,
     Login: LoginScreen,
     Camera: CameraScreen
   }

@@ -7,7 +7,8 @@ import { RNCamera } from 'react-native-camera';
 
 export default class CameraScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
-    header: null
+    header: null,
+    title: 'Camera'
   });
 
   constructor(props) {
@@ -63,7 +64,7 @@ export default class CameraScreen extends Component {
           }}
             source={{ uri: this.state.uri }}
           />
-          <View style={{ flexDirection: 'row'}}>
+          <View style={{ flexDirection: 'row', alignItems: 'center'}}>
             <Button title="OK" onPress={
               () => this.props.navigation.navigate('Filme',
                 { imguri: this.state.uri })
